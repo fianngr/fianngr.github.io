@@ -1,0 +1,127 @@
+body{
+    font:16px/28px arial, sans-sherif;
+    background-color:aliceblue;
+}
+*{
+    box-sizing: border-box;
+ }
+.container {
+    max-width: 1200px;
+    /* background-color: lightblue; */
+    margin: auto;
+}
+
+.nav-item{
+    position: relative;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.nav-item .nav h1{
+    margin-left: 20px ;
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.nav-item .nav ul {
+    box-sizing: border-box;
+}
+
+.nav-item .nav ul li{
+    display:inline-block;
+    border: 1px solid gray;
+
+    padding-right:20px ;
+    padding-left: 20px ;
+}
+
+li:nth-child(1){
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+li:nth-child(2){
+    
+}
+li:nth-child(3){
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-item .nav ul li a{
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content .left-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.content .left-content .img{
+    width: 600px;
+    height: 500px;
+    background-size: cover;
+    background-image: url(./Assets/sayur1.jpg);
+    background-position: -70px 0px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+
+
+@media (max-width: 800px) {
+    .nav-item .nav ul {
+        display: none;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    .content .left-content{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-item .nav ul {
+        display: none;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    .content .left-content{
+        flex-direction: column;
+    }
+    .content .left-content .img{
+        width:450px ;
+        background-position: -150px 0;
+        background-image: url(./Assets/download.jfif);
+        background-size: cover;
+    }
+}
