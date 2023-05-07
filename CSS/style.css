@@ -8,7 +8,7 @@ body{
 .container {
     max-width: 1200px;
     /* background-color: lightblue; */
-    margin: auto;
+    /* margin: auto; */
 }
 
 .nav-item{
@@ -76,6 +76,14 @@ li:nth-child(3){
     flex-direction: column;
     margin-top: 25px;
     margin-left: 25px;
+    width: 600px;
+}
+.content .right-content{
+    width: 550px;
+    background-color: rgb(152, 152, 152);
+    border-radius: 10px;
+    margin-top: 25px;
+    padding-left:40px;
 }
 
 .content .left-content .img{
@@ -86,6 +94,41 @@ li:nth-child(3){
     background-position: -70px 0px;
     background-repeat: no-repeat;
     border-radius: 10px;
+}
+.content .left-content p {
+    text-align: center;
+}
+
+.content .left-content .info-penjual {
+    box-sizing: border-box;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .left-content .info-penjual .penjual {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-image: url();
+}
+
+.content .left-content .info-penjual .tulisan{
+    box-sizing: border-box;
+    width: 300px;
+    border: 1px solid black;
+    font-size: 10px;
+}
+.content.right-content .contatc{
+    margin-bottom: 50px;
+}
+.content.right-content.name{
+    margin-top: 100px;
+}
+.content .right-content .name form{
+    margin-top: -20px;
 }
 
 
