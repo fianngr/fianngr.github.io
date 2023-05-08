@@ -19,6 +19,7 @@ body{
     justify-content: space-between;
     align-items: center;
     background-color: aliceblue;
+    margin-right: 25px;
 }
 
 .nav-item .nav h1{
@@ -85,6 +86,7 @@ li:nth-child(3){
     border-radius: 10px;
     margin-top: 25px;
     padding-left:40px;
+    margin-right:25px
 }
 
 .content .left-content .img{
@@ -106,14 +108,18 @@ li:nth-child(3){
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left:40px;
+    margin-top: 40px;
 }
 
 .content .left-content .info-penjual .penjual {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border: 1px solid black;
     border-radius: 50%;
-    background-image: url();
+    background-image: url(./Assets/orang.png);
+    background-position: -10px 7px;
+    background-repeat: no-repeat;
 }
 
 .content .left-content .info-penjual .tulisan{
@@ -121,10 +127,15 @@ li:nth-child(3){
     flex-direction: column;
     box-sizing: border-box;
     width: 300px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 10px;
     margin-left: 15px;
     padding: 0;
+}
+
+.content .left-content .info-penjual .tulisan :nth-child(1) {
+    font-size: 15px;
+    font-weight: bold;
 }
 .content.right-content .contatc{
     margin-bottom: 50px;
@@ -136,7 +147,24 @@ li:nth-child(3){
     margin-top: -20px;
 }
 
-
+.content .left-content .instruksi .info{
+    margin-top: 40px;
+    margin-left: 25px;
+    font-weight:bold;
+}
+.content .left-content .instruksi .info-instruksi .satu .foto{
+    display: flex;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 25px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 
 @media (max-width: 800px) {
     .nav-item .nav ul {
