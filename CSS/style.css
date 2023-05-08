@@ -1,14 +1,13 @@
 body{
-    font:16px/28px arial, sans-sherif;
-    background-color:aliceblue;
+    background-color: lightblue;
 }
 *{
     box-sizing: border-box;
- }
+}
 .container {
-    max-width: 1200px;
-    /* background-color: lightblue; */
-    /* margin: auto; */
+    background-color:aliceblue;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .nav-item{
@@ -30,13 +29,13 @@ body{
 }
 
 .nav-item .nav ul {
+    font:16px/28px arial, sans-sherif;
     box-sizing: border-box;
 }
 
 .nav-item .nav ul li{
     display:inline-block;
     border: 1px solid gray;
-
     padding-right:20px ;
     padding-left: 20px ;
 }
@@ -56,6 +55,7 @@ li:nth-child(3){
 
 .nav-item .nav ul li a{
     text-decoration: none;
+    color: rgb(219, 139, 163);
 }
 
 .header {
@@ -76,10 +76,11 @@ li:nth-child(3){
     flex-direction: column;
     margin-top: 25px;
     margin-left: 25px;
-    width: 600px;
+    width: 450px;
 }
 .content .right-content{
-    width: 550px;
+    width: 450px;
+    height: 500px;
     background-color: rgb(152, 152, 152);
     border-radius: 10px;
     margin-top: 25px;
@@ -87,21 +88,21 @@ li:nth-child(3){
 }
 
 .content .left-content .img{
-    width: 600px;
-    height: 500px;
+    width: 450px;
+    height: 400px;
     background-size: cover;
     background-image: url(./Assets/sayur1.jpg);
     background-position: -70px 0px;
     background-repeat: no-repeat;
     border-radius: 10px;
 }
-.content .left-content p {
+.content .left-content  .info-gambar p {
     text-align: center;
 }
 
 .content .left-content .info-penjual {
     box-sizing: border-box;
-    width: 600px;
+    width: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,10 +117,14 @@ li:nth-child(3){
 }
 
 .content .left-content .info-penjual .tulisan{
+    display: inline-block;
+    flex-direction: column;
     box-sizing: border-box;
     width: 300px;
     border: 1px solid black;
     font-size: 10px;
+    margin-left: 15px;
+    padding: 0;
 }
 .content.right-content .contatc{
     margin-bottom: 50px;
