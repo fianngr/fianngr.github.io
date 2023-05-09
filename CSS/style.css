@@ -9,7 +9,7 @@ body{
     max-width: 1000px;
     margin: auto;
 }
-
+/* css navigation*/
 .nav-item{
     position: relative;
 }
@@ -58,12 +58,16 @@ li:nth-child(3){
     text-decoration: none;
     color: rgb(219, 139, 163);
 }
-
+/*css home */
 .header {
     display: flex;
     flex-direction: column;
     padding-top: 80px;
     text-align: center;
+}
+
+.header h1{
+    font-size: 25px;;
 }
 
 .content{
@@ -79,15 +83,6 @@ li:nth-child(3){
     margin-left: 25px;
     width: 450px;
 }
-.content .right-content{
-    width: 450px;
-    height: 500px;
-    background-color: rgb(152, 152, 152);
-    border-radius: 10px;
-    margin-top: 25px;
-    padding-left:40px;
-    margin-right:25px
-}
 
 .content .left-content .img{
     width: 450px;
@@ -100,6 +95,7 @@ li:nth-child(3){
 }
 .content .left-content  .info-gambar p {
     text-align: center;
+    font-style: italic;
 }
 
 .content .left-content .info-penjual {
@@ -137,6 +133,87 @@ li:nth-child(3){
     font-size: 15px;
     font-weight: bold;
 }
+.content .left-content .info-penjual .tulisan :nth-child(2) {
+    font-style: italic;
+}
+
+.content .left-content .instruksi .info-instruksi {
+    margin-top: 40px;
+}
+
+.content .left-content .instruksi .info{
+    margin-top: 40px;
+    margin-left: 25px;
+    font-weight:bold;
+}
+.content .left-content .instruksi .info-instruksi .satu{
+    display:flex;
+    margin: 25px;
+}
+.content .left-content .instruksi .info-instruksi .satu .content{
+    margin-left: 35px;
+}
+.content .left-content .instruksi .info-instruksi .satu .foto{
+    display: flex;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.content .left-content .instruksi .info-instruksi .dua{
+    display:flex;
+    margin: 25px;
+}
+.content .left-content .instruksi .info-instruksi .dua .content{
+    margin-left: 35px;
+}
+.content .left-content .instruksi .info-instruksi .dua .foto{
+    display: flex;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.content .left-content .instruksi .info-instruksi .tiga{
+    display:flex;
+    margin: 25px;
+}
+.content .left-content .instruksi .info-instruksi .tiga .content{
+    margin-left: 35px;
+}
+.content .left-content .instruksi .info-instruksi .tiga .foto{
+    display: flex;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .right-content{
+    width: 450px;
+    height: 500px;
+    background-color: rgb(215, 241, 250);
+    border-radius: 10px;
+    margin-top: 25px;
+    padding-left:40px;
+    margin-right:25px
+}
+
 .content.right-content .contatc{
     margin-bottom: 50px;
 }
@@ -147,25 +224,49 @@ li:nth-child(3){
     margin-top: -20px;
 }
 
-.content .left-content .instruksi .info{
-    margin-top: 40px;
-    margin-left: 25px;
-    font-weight:bold;
-}
-.content .left-content .instruksi .info-instruksi .satu .foto{
+
+
+/*css our packages*/
+.our-packages{
+    width: 100%;
+    height: 200px;
+    background-color: rgb(215, 241, 250);
     display: flex;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 25px;
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
-    border-radius: 50%;
-    text-align: center;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    font-size:25px;
+} 
+
+#packages .container{
+    border: 1px solid black;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
+#packages .container .main {
+    width: 30%;
+    height:50px;
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*css responsive media*/
 @media (max-width: 800px) {
     .nav-item .nav ul {
         display: none;
