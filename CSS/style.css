@@ -9,6 +9,7 @@ body{
     max-width: 1000px;
     margin: auto;
 }
+
 /* css navigation*/
 .nav-item{
     position: relative;
@@ -58,6 +59,7 @@ li:nth-child(3){
     text-decoration: none;
     color: rgb(219, 139, 163);
 }
+
 /*css home */
 .header {
     display: flex;
@@ -68,6 +70,10 @@ li:nth-child(3){
 
 .header h1{
     font-size: 25px;;
+}
+.header p{
+    color: rgb(79, 78, 78);
+    margin-top: -10px ;
 }
 
 .content{
@@ -96,6 +102,7 @@ li:nth-child(3){
 .content .left-content  .info-gambar p {
     text-align: center;
     font-style: italic;
+    color: rgb(119, 119, 119);
 }
 
 .content .left-content .info-penjual {
@@ -123,10 +130,10 @@ li:nth-child(3){
     flex-direction: column;
     box-sizing: border-box;
     width: 300px;
-    /* border: 1px solid black; */
     font-size: 10px;
     margin-left: 15px;
     padding: 0;
+
 }
 
 .content .left-content .info-penjual .tulisan :nth-child(1) {
@@ -135,6 +142,9 @@ li:nth-child(3){
 }
 .content .left-content .info-penjual .tulisan :nth-child(2) {
     font-style: italic;
+    margin-top: -10px;
+    font-size: 10px;
+    color: rgb(147, 147, 147);
 }
 
 .content .left-content .instruksi .info-instruksi {
@@ -152,18 +162,20 @@ li:nth-child(3){
 }
 .content .left-content .instruksi .info-instruksi .satu .content{
     margin-left: 35px;
+    color: rgb(147, 147, 147);
 }
 .content .left-content .instruksi .info-instruksi .satu .foto{
     display: flex;
-    font-size: 25px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid black;
     border-radius: 50%;
     text-align: center;
     align-items: center;
     justify-content: center;
+    background-color: rgb(215, 241, 250);
 }
 .content .left-content .instruksi .info-instruksi .dua{
     display:flex;
@@ -171,13 +183,15 @@ li:nth-child(3){
 }
 .content .left-content .instruksi .info-instruksi .dua .content{
     margin-left: 35px;
+    color: rgb(147, 147, 147);
 }
 .content .left-content .instruksi .info-instruksi .dua .foto{
+    background-color: rgb(215, 241, 250);
     display: flex;
-    font-size: 25px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid black;
     border-radius: 50%;
     text-align: center;
@@ -190,13 +204,15 @@ li:nth-child(3){
 }
 .content .left-content .instruksi .info-instruksi .tiga .content{
     margin-left: 35px;
+    color: rgb(147, 147, 147);
 }
 .content .left-content .instruksi .info-instruksi .tiga .foto{
     display: flex;
-    font-size: 25px;
+    background-color: rgb(215, 241, 250);
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid black;
     border-radius: 50%;
     text-align: center;
@@ -239,30 +255,108 @@ li:nth-child(3){
 } 
 
 #packages .container{
-    border: 1px solid black;
     display: flex;
-    /* flex-direction: row; */
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-
-#packages .container .main {
+#packages .container .content{
     width: 30%;
-    height:50px;
+    margin: 25px 15px 25px 15px;
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+#packages .container .content .main p {
+    color: rgb(147, 147, 147);
 }
 
 
 
+#packages .container .content .main {
+    font-size: 15px;
+    width: 75%;
+    margin: 0px 0px 0px 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
 
+#packages .container .content .atas {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(./Assets/salju.png);
+    background-position: -15px 0px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
 
+#packages .container .content .foto {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(./Assets/bintang.jpg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
 
+#call .container .main{
+    text-align: center;
+}
 
+#call .container .main p{
+    color: rgb(147, 147, 147);
+}
 
+/*#CSS footer*/
+#call .container .main a {
+    display: flex;
+    text-decoration:none;
+    background-color: black;
+    color:white;
+    width: 200px;
+    height: 50px;
+    border-radius:5px;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
 
+#call .container .footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
+#call .container .footer .p {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -20px;
+    background-color: aqua;
+}
+
+#call .container .footer .atas {
+    display: flex;
+    background-color: aqua;
+    justify-content: space-evenly;
+    width: 250px;
+} 
+
+#call .container .footer .bawah {
+    display: flex;
+    background-color: aqua;
+    justify-content: space-evenly;
+    width: 150px;
+
+}
 
 
 
