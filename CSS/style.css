@@ -58,6 +58,10 @@ li:nth-child(3){
     color: rgb(147, 147, 147);
 }
 
+.nav-item .nav ul li a:hover{
+    background:rgb(84, 185, 228) ;
+}
+
 /*css home */
 .header {
     display: flex;
