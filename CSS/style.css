@@ -55,7 +55,7 @@ li:nth-child(3){
 
 .nav-item .nav ul li a{
     text-decoration: none;
-    color: rgb(219, 139, 163);
+    color: rgb(147, 147, 147);
 }
 
 /*css home */
@@ -90,15 +90,38 @@ li:nth-child(3){
     width: 450px;
 }
 
-.content .left-content .img{
+.content .left-content .img img{
     width: 450px;
     height: 400px;
     background-size: cover;
-    background-image: url(./Assets/sayur1.jpg);
+    /* background-image: url(./Assets/sayur1.jpg); */
     background-position: -70px 0px;
     background-repeat: no-repeat;
     border-radius: 10px;
 }
+.content .left-content  .info-gambar .slide-ke {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.content .left-content  .info-gambar .active {
+    background-color: #717171;
+}
+
+.content .left-content  .info-gambar .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
 .content .left-content  .info-gambar p {
     text-align: center;
     font-style: italic;
@@ -447,6 +470,16 @@ li:nth-child(3){
 }
 
 @media (max-width: 600px) {
+     .container{
+        overflow: hidden;
+     }
+    .nav-item .nav h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+    }
     .nav-item .nav ul {
         display: none;
     }
@@ -460,9 +493,26 @@ li:nth-child(3){
         flex-direction: column;
     }
     .content .left-content .img{
-        width:450px ;
+        width:400px ;
         background-position: -150px 0;
         background-image: url(./Assets/download.jfif);
         background-size: cover;
+        margin: auto;
+    }
+    .content .left-content .info-penjual{
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 25%;
+    }
+    #packages .container .content{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        /* padding: auto; */
+        align-items: center;
     }
 }

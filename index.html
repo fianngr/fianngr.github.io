@@ -25,7 +25,20 @@
             <div class="content">
                 <div class="left-content">
                     <div class="info-gambar">
-                        <div class="img"></div>
+                        <div class="img">
+                            <img src="CSS/Assets/sayur1.jpg" alt="">
+                        </div>
+                        <div class="img">
+                            <img src="CSS/Assets/download.jfif" alt="">
+                        </div>
+                        <div class="img">
+                            <img src="CSS/Assets/sayur.png" alt="">
+                        </div>
+                        <div style="text-align:center">
+                            <span class="slide-ke"></span> 
+                            <span class="slide-ke"></span> 
+                            <span class="slide-ke"></span> 
+                        </div>
                         <p>"setiap hari beli sayur yang fresh disini"</p>
                     </div>
                     <div class="info-penjual">
@@ -171,7 +184,6 @@
     <script>
         let error_msg=document.querySelector(".error_msg");
         let succed_msg=document.querySelector(".succed_msg");
-        // var x = document.querySelector(".number");
 
         function numberonly(input){
                     var num = /[^0-9]/gi;
@@ -190,6 +202,11 @@
                 alert("email must be filled out");
                 document.forms["myForm"]["email"].focus();
                 return false;
+            } else if (document.forms["myForm"]["number"].value == ""){
+                error_msg.style.display="inline-block";
+                alert("number must be filled out");
+                document.forms["myForm"]["number"].focus();
+                return false;
             } else if (document.forms["myForm"]["msg"].value == ""){
                 error_msg.style.display="inline-block";
                 alert("message must be filled out");
@@ -199,6 +216,27 @@
                 succed_msg.style.display="inline-block"
                 alert ("berhasil")
             }     
+        }
+
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("img");
+            let dots = document.getElementsByClassName("slide-ke");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
         </script>
 </body>
