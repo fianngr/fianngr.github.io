@@ -403,22 +403,29 @@ li:nth-child(3){
     flex-wrap: wrap;
     justify-content: center;
     margin-top: -20px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
+#call .container .footer .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+}
 #call .container .footer .atas {
     display: flex;
-    background-color: aqua;
+    /* background-color: aqua; */
     justify-content: space-evenly;
     width: 250px;
 } 
 
 #call .container .footer .bawah {
     display: flex;
-    background-color: aqua;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+    justify-content: center;
     width: 150px;
-
+    margin: -5px auto auto;
 }
 
 
