@@ -61,20 +61,38 @@
                         <p>Sales akan menghubungi anda 1x24 <br> jam setelah data kami terima.</p>
                     </div>
                     <div class="name">
-                        <form action="">
-                            <label for="name">Your Name     :</label><br>
-                            <input type="text" id="name" name="name"><br><br>
-                            <label for="email">Email Addres :</label><br>
-                            <input type="text" id="email" name="name"><br><br>
-                            <label for="opt">What are you interested in?</label><br>
-                            <select name="opt" id="opt">
-                                <optgroup label="Sayuran">
-                                    <option value="tomat">Tomat</option>
-                                    <option value="timun">Timun</option>
-                                    <option value="bayam">Bayam</option>
-                                </optgroup>
-                            </select><br><br>
-                            <input type="submit" id="submit" value="Send">
+                        <form name="myForm" action="" onsubmit="return validateForm()">
+                            <div class="input_wrap">
+                                <label for="fname">Your Name     :</label><br>
+                                <div class="input_field">
+                                    <input class="input" type="text" id="fname" name="fname"><br><br>
+                                </div>
+                            </div>
+                            <div class="input_wrap">
+                                <label for="email">Email Addres :</label><br>
+                                <div class="input_field">
+                                    <input class="input" type="text" id="email" name="email"><br><br>
+                                </div>
+                            </div>
+                            <div class="input_wrap">
+                                <label for="number">Phone Number :</label><br>
+                                <div class="input_field">
+                                    <input class="input" type="text" id="number" name="number" onkeyup="numberonly(this)"><br><br>
+                                </div>
+                            </div>
+                            <div class="input_wrap">
+                                <label for="msg">Message :</label><br>
+                                <div class="input_field">
+                                    <input class="input" type="text" id="msg" name="msg"><br><br>
+                                </div>
+                            </div>
+                            <div class="input_btn">
+                                <span class="error_msg">Tidak Berhasil, Ulangi lagi</span>
+                                <span class="succed_msg">Berhasil</span>
+                                <div class="input_field">
+                                    <input class="btn" type="submit" id="submit" value="Send">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -150,5 +168,38 @@
             </div>
         </section>
     </div>
+    <script>
+        let error_msg=document.querySelector(".error_msg");
+        let succed_msg=document.querySelector(".succed_msg");
+        // var x = document.querySelector(".number");
+
+        function numberonly(input){
+                    var num = /[^0-9]/gi;
+                    input.value = input.value.replace(num,"");
+                } 
+                
+
+        function validateForm() {
+            if  (document.forms["myForm"]["fname"].value == "") {
+                error_msg.style.display="inline-block";
+                alert("Name must be filled out");
+                document.forms["myForm"]["fname"].focus();
+                return false;
+            } else if (document.forms["myForm"]["email"].value == ""){
+                error_msg.style.display="inline-block";
+                alert("email must be filled out");
+                document.forms["myForm"]["email"].focus();
+                return false;
+            } else if (document.forms["myForm"]["msg"].value == ""){
+                error_msg.style.display="inline-block";
+                alert("message must be filled out");
+                document.forms["myForm"]["msg"].focus();
+                return false;
+            } else {
+                succed_msg.style.display="inline-block"
+                alert ("berhasil")
+            }     
+        }
+        </script>
 </body>
 </html>

@@ -47,9 +47,7 @@ li:nth-child(1){
     border-bottom-left-radius: 5px;
 }
 
-li:nth-child(2){
-    
-}
+
 li:nth-child(3){
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -69,11 +67,13 @@ li:nth-child(3){
 }
 
 .header h1{
-    font-size: 25px;;
+    font-size: 25px;
+    margin-top: -20px;
 }
 .header p{
     color: rgb(79, 78, 78);
     margin-top: -10px ;
+    margin-bottom: 30px;
 }
 
 .content{
@@ -222,7 +222,7 @@ li:nth-child(3){
 
 .content .right-content{
     width: 450px;
-    height: 500px;
+    height: 700px;
     background-color: rgb(215, 241, 250);
     border-radius: 10px;
     margin-top: 25px;
@@ -230,15 +230,78 @@ li:nth-child(3){
     margin-right:25px
 }
 
-.content.right-content .contatc{
+.content .right-content .contact p{
     margin-bottom: 50px;
+    color: rgb(79, 78, 78)
 }
 .content.right-content.name{
     margin-top: 100px;
 }
 .content .right-content .name form{
-    margin-top: -20px;
+    margin-top: 0px;
 }
+.content .right-content .name  .input_wrap{
+    margin-bottom: 20px;
+    width: 325px;
+    position: relative;
+}
+.content .right-content .name  .input_wrap:last-child(){
+    margin-bottom: 0;
+}
+.content .right-content .name  .input_wrap label{
+    display: block;
+    margin-bottom: -10px;
+    
+}
+.content .right-content .name  .input_wrap input{
+    padding: 10px 150px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+.content .right-content .name  .input_wrap:nth-child(4) input{
+    padding-bottom: 50px;
+}
+
+.content .right-content .name  .input_wrap .input{
+    background: #ffffff;
+    /* border: 1px solid black; */
+}
+.content .right-content .name  .input_wrap .input:focus{
+    border: #1dbf73;
+}
+.content .right-content .name  .input_wrap .input_field{
+    position: relative;
+}
+
+.content .right-content .name  .input_btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content .right-content .name  .input_btn .succed_msg{
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #1dbf73;
+    display: none;
+}
+.content .right-content .name  .input_btn .error_msg{
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #f74040;
+    display: none;
+}
+
+.content .right-content .name  .input_btn .btn{
+    background: #cfcece;
+    border-color: black;
+    padding: 10px 75px 10px;
+}
+.content .right-content .name  .input_btn .btn:focus{
+    background: #1dbf73;
+}
+
+
 
 
 
