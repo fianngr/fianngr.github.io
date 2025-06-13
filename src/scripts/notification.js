@@ -14,7 +14,7 @@ function urlBase64ToUint8Array(base64String) {
 export async function registerSWAndPush(token) {
   if ('serviceWorker' in navigator && 'PushManager' in window) {
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js');
+      const registration = await navigator.serviceWorker.register('./sw.js');
       console.log('Service Worker registered');
 
       const subscription = await registration.pushManager.subscribe({
