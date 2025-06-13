@@ -28,7 +28,18 @@ export async function registerSWAndPush(token) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(subscription)
+        body: JSON.stringify({
+          endpoint: subscription.endpoint,
+          keys: {
+            p256dh: subscription.getKey('p256dh')
+              ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh'))))
+              : null,
+            auth: subscription.getKey('auth')
+              ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))
+              )
+              : null
+            }
+        })
       });
 
       console.log('Subscribed to push notifications');
