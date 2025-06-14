@@ -1,7 +1,8 @@
 import {
   saveStoryOffline,
   getAllOfflineStories,
-  clearOfflineStories
+  clearOfflineStories,
+  getAllOfflineStoryDetails
 } from '../db.js';
 import { model } from '../model.js';
 
@@ -44,6 +45,10 @@ async function syncOfflineStories() {
 }
 
 export const storyPresenter = {
+  async getSavedStories() {
+    return await getAllOfflineStoryDetails();
+  },
+
   initStoryFormHandler() {
     if (isFormHandlerInitialized) return;
     isFormHandlerInitialized = true;
