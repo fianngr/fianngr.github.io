@@ -1,7 +1,7 @@
-import { storyPresenter } from '../presenter/storyPresenter.js';
+import { savedPresenter } from '../presenter/savedPresenter.js';
 
 export const SavedStoriesView = async () => {
-  const stories = await storyPresenter.getSavedStories() || [];
+  const stories = await savedPresenter.getSavedStories() || [];
 
   const html = `
     <h2 class="fade-in">Story Tersimpan</h2>
@@ -50,24 +50,6 @@ export const SavedStoriesView = async () => {
         window.location.hash = '/';
       });
     }
-
-    document.querySelectorAll('.bookmark-button').forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        const id = btn.dataset.id;
-        const story = stories.find(s => s.id == id);
-        if (!story) return;
-
-        try {
-          const isBookmarked = await storyPresenter.toggleBookmark(story);
-          btn.textContent = isBookmarked ? 'Buang' : 'Simpan';
-          alert('Story dibuang dari penyimpanan offline.');
-          window.location.reload();
-        } catch (err) {
-          console.error('Gagal hapus bookmark:', err);
-          alert('Terjadi kesalahan saat membuang bookmark.');
-        }
-      });
-    });
   }, 0);
 
   setTimeout(() => {

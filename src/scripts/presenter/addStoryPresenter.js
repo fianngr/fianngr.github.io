@@ -14,19 +14,25 @@ export const addStoryPresenter = {
 
   async syncOfflineStories() {
     const offlineStories = await getAllOfflineStories();
+    if (!offlineStories.length) return;
+
     for (const story of offlineStories) {
-      try {
-        if (!story.description || (!story.photo && !story.photoUrl)) continue;
+        try {
+        if (!story.description || (!story.photo && !story.photoUrl)) {
+            console.warn('Lewati story offline yang datanya tidak lengkap:', story);
+            continue;
+        }
 
         const photoBlob = story.photo;
+
         const photoFile = new File([photoBlob], 'offline-photo.jpg', {
-          type: photoBlob.type || 'image/jpeg'
+            type: photoBlob.type || 'image/jpeg'
         });
 
         await model.createStory(story.description, photoFile, story.lat, story.lon);
-      } catch (e) {
+        } catch (e) {
         console.error('Gagal sinkronisasi cerita offline:', e);
-      }
+        }
     }
 
     await clearOfflineStories();

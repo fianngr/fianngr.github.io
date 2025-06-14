@@ -1,6 +1,5 @@
 import { routeHandler } from './router.js';
-import { initAuthPresenter } from './presenter/authPresenter.js';
-import { storyPresenter } from './presenter/storyPresenter.js';
+import { addStoryPresenter } from './presenter/addStoryPresenter.js';
 import '../styles/style.css';
 import '../scripts/init-sw'; 
 
@@ -14,6 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   routeHandler(); 
-  initAuthPresenter();
-  storyPresenter.initStoryFormHandler();
+  addStoryPresenter.initStoryFormHandler();
 });
