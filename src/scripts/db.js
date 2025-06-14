@@ -52,6 +52,19 @@ export function getAllOfflineStories() {
     request.onerror = reject;
   });
 }
+export function getAllOfflineStoryDetails() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    request.onsuccess = () => {
+      const db = request.result;
+      const tx = db.transaction(STORE_DETAIL, 'readonly');
+      const getAll = tx.objectStore(STORE_DETAIL).getAll();
+      getAll.onsuccess = () => resolve(getAll.result);
+      getAll.onerror = reject;
+    };
+    request.onerror = reject;
+  });
+}
 
 export function clearOfflineStories() {
   return new Promise((resolve, reject) => {
@@ -92,6 +105,20 @@ export function getOfflineStoryDetailById(id) {
       const get = tx.objectStore(STORE_DETAIL).get(id);
       get.onsuccess = () => resolve(get.result);
       get.onerror = reject;
+    };
+    request.onerror = reject;
+  });
+}
+
+export function deleteOfflineStoryDetail(id) {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    request.onsuccess = () => {
+      const db = request.result;
+      const tx = db.transaction(STORE_DETAIL, 'readwrite');
+      const del = tx.objectStore(STORE_DETAIL).delete(id);
+      del.onsuccess = resolve;
+      del.onerror = reject;
     };
     request.onerror = reject;
   });

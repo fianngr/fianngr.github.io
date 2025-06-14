@@ -42,7 +42,7 @@ self.addEventListener('fetch', (event) => {
 
   if (event.request.method !== 'GET') return;
 
-  
+  // Image cache
   if (
     requestUrl.origin === 'https://story-api.dicoding.dev' &&
     requestUrl.pathname.startsWith('/images/')
@@ -65,7 +65,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  
+  // Story detail fallback
   if (
     requestUrl.origin === 'https://story-api.dicoding.dev' &&
     requestUrl.pathname.startsWith('/v1/stories/story-')
@@ -94,25 +94,30 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Story list → Jangan tampilkan apa-apa saat offline
   if (
     requestUrl.origin === 'https://story-api.dicoding.dev' &&
     requestUrl.pathname === '/v1/stories'
   ) {
     event.respondWith(
-      caches.open(API_CACHE).then((cache) =>
-        fetch(event.request)
-          .then((response) => {
-            if (response.ok) {
-              cache.put(event.request, response.clone());
-            }
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
             return response;
-          })
-          .catch(() => cache.match(event.request))
-      )
+          }
+          throw new Error('Response not OK');
+        })
+        .catch(() => {
+          return new Response(JSON.stringify([]), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        })
     );
     return;
   }
 
+  // Fallback untuk semua request lainnya
   event.respondWith(
     caches.match(event.request).then((cached) => {
       return (
@@ -122,7 +127,6 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-
 
 self.addEventListener('push', function (event) {
   let data = {};
@@ -136,8 +140,31 @@ self.addEventListener('push', function (event) {
   const options = {
     body: data.message || 'Notifikasi dari server.',
     icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-192x192.png'
+    badge: '/icons/icon-192x192.png',
+    data: {
+      url: data.url || '/' // bisa diarahkan ke halaman tertentu
+    }
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
 });
+
+// Tambahkan ini agar klik notifikasi membuka tab app
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close();
+  const urlToOpen = event.notification.data?.url || '/';
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      for (const client of clientList) {
+        if (client.url === urlToOpen && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(urlToOpen);
+      }
+    })
+  );
+});
+

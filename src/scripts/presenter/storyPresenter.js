@@ -1,11 +1,9 @@
-import { model } from '../model.js';
 import {
   saveStoryOffline,
   getAllOfflineStories,
-  clearOfflineStories,
-  saveStoryDetailOffline,
-  getOfflineStoryDetailById
+  clearOfflineStories
 } from '../db.js';
+import { model } from '../model.js';
 
 const showLoading = () => {
   const overlay = document.getElementById('loadingOverlay');
@@ -25,7 +23,7 @@ async function syncOfflineStories() {
 
   for (const story of offlineStories) {
     try {
-      if (!story.description || !story.photo || !story.lat || !story.lon) {
+      if (!story.description || (!story.photo && !story.photoUrl)) {
         console.warn('Lewati story offline yang datanya tidak lengkap:', story);
         continue;
       }
@@ -46,41 +44,6 @@ async function syncOfflineStories() {
 }
 
 export const storyPresenter = {
-  async createStory(description, photo, lat, lon) {
-    return await model.createStory(description, photo, lat, lon);
-  },
-
-  async getAllStories() {
-    try {
-      const res = await fetch('https://story-api.dicoding.dev/v1/stories', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
-      const data = await res.json();
-      return data.listStory;
-    } catch (err) {
-      console.warn('Offline mode: Fetch from IndexedDB', err);
-      return await getAllOfflineStories();
-    }
-  },
-
-  async getStoryDetail(id) {
-    try {
-      const res = await fetch(`https://story-api.dicoding.dev/v1/stories/${id}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
-      const data = await res.json();
-
-      if (data?.story?.id) {
-        await saveStoryDetailOffline(data.story);
-      }
-
-      return data.story;
-    } catch (e) {
-      console.warn('Offline mode: mengambil detail dari cache untuk id:', id);
-      return await getOfflineStoryDetailById(id);
-    }
-  },
-
   initStoryFormHandler() {
     if (isFormHandlerInitialized) return;
     isFormHandlerInitialized = true;

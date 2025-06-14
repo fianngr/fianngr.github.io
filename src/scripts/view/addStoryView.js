@@ -1,5 +1,4 @@
-import { storyPresenter } from '../presenter/storyPresenter.js';
-import { saveStoryOffline } from '../db.js';
+import { addStoryPresenter } from '../presenter/addStoryPresenter.js';
 
 export const AddStoryView = () => {
     let stream;
@@ -101,25 +100,20 @@ export const AddStoryView = () => {
                 return;
             }
 
-            if (!navigator.onLine) {
-                await saveStoryOffline({
+            try {
+                const result = await addStoryPresenter.createStory({
                     description,
                     photo: imageBlob,
                     lat: selectedLat,
                     lon: selectedLon
                 });
 
-                alert('Kamu sedang offline. Cerita disimpan dan akan dikirim saat online.');
-                stopCamera();
-                window.removeEventListener('hashchange', stopCamera);
-                form.removeEventListener('submit', formSubmitListener);
-                window.location.hash = '#/';
-                return;
-            }
+                if (result.offline) {
+                    alert('Kamu sedang offline. Cerita disimpan dan akan dikirim saat online.');
+                } else {
+                    alert(`Anda telah membuat story baru dengan deskripsi: ${description}`);
+                }
 
-            try {
-                await storyPresenter.createStory(description, imageBlob, selectedLat, selectedLon);
-                alert(`Anda telah membuat story baru dengan deskripsi: ${description}`);
                 stopCamera();
                 window.removeEventListener('hashchange', stopCamera);
                 form.removeEventListener('submit', formSubmitListener);
@@ -133,6 +127,7 @@ export const AddStoryView = () => {
         form.removeEventListener('submit', formSubmitListener);
         form.addEventListener('submit', formSubmitListener);
 
+        addStoryPresenter.syncOfflineStories();
     }, 0);
 
     return html;

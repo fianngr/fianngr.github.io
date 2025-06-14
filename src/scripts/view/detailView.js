@@ -1,7 +1,7 @@
-import { storyPresenter } from '../presenter/storyPresenter.js';
+import { detailPresenter } from '../presenter/detailPresenter.js';
 
 export const DetailView = async (id) => {
-    const story = await storyPresenter.getStoryDetail(id) || {};
+    const story = await detailPresenter.getStoryDetail(id) || {};
 
     const description = story.description ?? 'Tidak tersedia';
     const lat = (story.lat !== undefined && !isNaN(parseFloat(story.lat))) ? parseFloat(story.lat) : null;
